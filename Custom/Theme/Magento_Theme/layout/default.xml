@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.panel">
+            <block class="Magento\Framework\View\Element\Html\Links" name="header.links">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">header links</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <!-- Slick Slider -->
+        <container name="above.footer" as="above.footer" htmlTag="div" htmlClass="above-footer" >
+            <block class="Magento\Cms\Block\Block" name="footer_slider">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_slider</argument>
+                </arguments>
+            </block>
+        </container>
+        <!-- Slick Slider -->
+
+        <referenceContainer name="footer">
+            <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer_links" template="Magento_Store::switch/stores.phtml"/>
+        </referenceContainer>
+        <referenceBlock name="report.bugs" remove="true"/>
+        <move element="copyright" destination="before.body.end"/>
+
+        <!-- Moved Elements -->
+        <move element="logo" destination="header-wrapper" after="-" />
+        <move element="top.search" destination="header-wrapper" before="minicart" />
+        <move element="above.footer" destination="page.wrapper" before="footer" />
+        <!-- Moved Elements -->
+    </body>
+</page>

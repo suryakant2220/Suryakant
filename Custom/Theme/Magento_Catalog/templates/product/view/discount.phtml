@@ -1,0 +1,9 @@
+<?php
+$_helper = $this->helper(Magento\Catalog\Helper\Output::class);
+$_product = $block->getProduct();
+?>
+
+<div class="custom-attribute">
+    <strong><?php  echo $_product->getResource()->getAttribute('discount')->getStoreLabel(); ?>: </strong>
+    <p class="custom-attribute-value"><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('discount')->getFrontend()->getValue($_product); ?></p>
+</div>
